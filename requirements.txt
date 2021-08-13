@@ -1,3 +1,4 @@
+conda==4.8.3
 alabaster==0.7.12
 alembic==1.5.4
 anaconda-client==1.7.2
@@ -47,7 +48,6 @@ clyent==1.2.2
 colorama==0.4.4
 colorlog==4.7.2
 commonmark==0.9.1
-conda==4.8.3
 conda-build==3.18.11
 conda-package-handling==1.7.0
 conda-verify==3.4.2
