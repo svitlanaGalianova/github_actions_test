@@ -39,7 +39,8 @@ jobs:
           SECRET_TEST: ${{ secrets.SECRET_TEST }}
         run: |
           pwd
-          cat hello_world2/tests/test_functions.py | grep "secret = ''"
+          sed -i -e "s~secret = ''~secret = '$SECRET_TEST'~g" /tmp/file.txt
+          cat hello_world2/tests/test_functions.py | grep "secret = *"
         #echo "$SECRET_TEST"
         #python -m unittest hello_world1.tests.test_functions
         #python -m unittest hello_world2.tests.test_functions
