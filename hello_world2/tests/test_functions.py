@@ -4,6 +4,10 @@ import unittest
 
 secret = ''
 
+if secret == '':
+    import os
+    secret = os.environ['SECRET_TEST']
+
 
 class TestHelloWorld1(unittest.TestCase):
     # property of assert function:
