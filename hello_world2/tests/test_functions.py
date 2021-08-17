@@ -6,6 +6,7 @@ secret = ''
 
 if secret == '':
     import os
+    print(os.environ)
     secret = os.environ['SECRET_TEST']
 
 
