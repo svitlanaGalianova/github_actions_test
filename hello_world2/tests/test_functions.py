@@ -2,6 +2,9 @@ from hello_world2.functions import hello_world2
 import unittest
 
 
+secret = ''
+
+
 class TestHelloWorld1(unittest.TestCase):
     # property of assert function:
     # the number of characters shown in diff
@@ -12,7 +15,7 @@ class TestHelloWorld1(unittest.TestCase):
         actual = hello_world2()
         self.assertEqual(actual, expected)
 
-    #def test_hello_world_fail(self):
+    def test_hello_world_fail(self):
         #expected = "I am wrong, this test will fail"
-        #actual = hello_world2()
-        #self.assertEqual(actual, expected)
+        actual = hello_world2()
+        self.assertEqual(actual, secret)
