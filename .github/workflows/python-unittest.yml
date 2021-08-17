@@ -17,11 +17,11 @@ jobs:
         python-version: [3.8.3]
 
     steps:
-      - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+      - uses: actions/checkout@v2
       - name: Install dependencies
         run: |
           echo "No dependencies"
@@ -35,8 +35,6 @@ jobs:
       # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
       #flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with unittest
-        steps:
-          - uses: actions/checkout@v2
         env:
           SECRET_TEST: ${{ secrets.SECRET_TEST }}
         run: |
