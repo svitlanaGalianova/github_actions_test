@@ -13,6 +13,6 @@ class TestHelloWorld1(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_hello_world_fail(self):
-        expected = "Hello World2!"
+        expected = "Hello World2 - break!"
         actual = hello_world2()
         self.assertEqual(actual, expected)
