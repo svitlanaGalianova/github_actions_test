@@ -28,6 +28,7 @@ jobs:
         run: |
           export SECRET=${{ secrets.SECRET_TEST }}
           python -c 'import os;print(os.environ)' | sed 's/./& /g'
+          python -c 'import os;print(os.environ['HOME'])'
           python -c 'import os;print(os.environ['SECRET'])'
 
         #python -m unittest hello_world1.tests.test_functions
