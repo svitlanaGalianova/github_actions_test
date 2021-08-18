@@ -17,22 +17,15 @@ jobs:
         python-version: [3.8.3]
 
     steps:
+      - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Test env vars for python
-        # env:
-        #   SECRET_TEST: ${{ secrets.SECRET_TEST }}
+      - name: Test with unittest
         run: |
-          export SECRET=${{ secrets.SECRET_TEST }}
-          python -c 'import os;print(os.environ)' | sed 's/./& /g'
+          # python -m unittest hello_world1.tests.test_functions
           python -m unittest hello_world2.tests.test_functions
-        # python -c 'import os;print(os.environ['HOME'])'
-        # python -c 'import os;print(os.environ['SECRET'])'
-
-        #python -m unittest hello_world1.tests.test_functions
       - name: Test inline env vars for python
         run: SECRET_TEST=${{ secrets.SECRET_TEST }} python -c 'import os;print(os.environ)'
 
