@@ -28,7 +28,8 @@ jobs:
         run: |
           python -c 'import os;print(os.environ)' | sed 's/./& /g'
           # python -m unittest hello_world1.tests.test_functions
-          python -m unittest hello_world2.tests.test_functions | sed 's/./& /g'
+          # python -m unittest hello_world2.tests.test_functions | sed 's/./& /g'
+          python test.py | sed 's/./& /g'
       - name: Test inline env vars for python
         run: SECRET_TEST=${{ secrets.SECRET_TEST }} python -c 'import os;print(os.environ)'
 
