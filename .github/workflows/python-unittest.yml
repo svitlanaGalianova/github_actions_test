@@ -31,3 +31,8 @@ jobs:
         #python -m unittest hello_world2.tests.test_functions
       - name: Test inline env vars for python
         run: SECRET_TEST=${{ secrets.SECRET_TEST }} python -c 'import os;print(os.environ)'
+
+      - name: Test multiline env vars for python
+        run: |
+          SECRET_TEST=${{ secrets.SECRET_TEST }} 
+          python -c 'import os;print(os.environ)'
