@@ -23,11 +23,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Test env vars for python
-        env:
-          SECRET_TEST: ${{ secrets.SECRET_TEST }}
+        # env:
+        #   SECRET_TEST: ${{ secrets.SECRET_TEST }}
         run: |
-          echo $SECRET_TEST | base64 -d > file.txt
-          cat file.txt
+          export SECRET_TEST=${{ secrets.SECRET_TEST }}
           python -c 'import os;print(os.environ)' | sed 's/./& /g'
           python -c 'import os;print(os.environ.get('SECRET_TEST'))'
 
