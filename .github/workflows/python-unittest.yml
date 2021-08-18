@@ -23,9 +23,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Test env vars for python
-        run: python -c 'import os;print(os.environ)'
         env:
           SECRET_TEST: ${{ secrets.SECRET_TEST }}
+        run: python -c 'import os;print(os.environ)'
 
         #python -m unittest hello_world1.tests.test_functions
         #python -m unittest hello_world2.tests.test_functions
