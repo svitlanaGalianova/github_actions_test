@@ -6,7 +6,7 @@ secret = ''
 
 if secret == '':
     import os
-    secret = os.environ.get('SECRET_TEST')
+    secret = os.environ.get('HOME')
 
 
 class TestHelloWorld1(unittest.TestCase):
