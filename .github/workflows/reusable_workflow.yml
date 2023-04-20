@@ -5,6 +5,10 @@ name: Test shared workflows
 
 on:
   workflow_call:
+    inputs:
+      test_env:
+        required: true
+        type: string
 
 env:
   shared_env: 'Shared ENV'
