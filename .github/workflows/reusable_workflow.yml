@@ -1,0 +1,28 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Test shared workflows
+
+on:
+  workflow_call:
+
+env:
+  shared_env: 'Shared ENV'
+  
+jobs:
+  test_shared_workflow:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version: [3.8.3]
+    env:
+      test_env: 'Test1'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Test 
+        run: echo "Hello ${test_env}, ${shared_env}"
+ 
