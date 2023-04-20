@@ -5,7 +5,7 @@ name: Test shared properties
 
 on:
   push:
-    branches: [test2]
+    branches: [main]
 
 env:
   shared_env: 'Shared ENV'
