@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Test 
-        run: Hello ${env.test_env}
+        run: Hello ${test_env}
   test2:
     runs-on: ubuntu-latest
     strategy:
@@ -37,5 +37,5 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Test 
-        run: Hello ${env.test_env}
+        run: Hello ${test_env}
           
