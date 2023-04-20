@@ -7,6 +7,9 @@ on:
   push:
     branches: [test2]
 
+env:
+  shared_env: 'Shared ENV'
+  
 jobs:
   test1:
     runs-on: ubuntu-20.04
@@ -22,7 +25,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Test 
-        run: echo "Hello ${test_env}"
+        run: echo "Hello ${test_env}, ${shared_env}"
   test2:
     runs-on: ubuntu-20.04
     strategy:
@@ -37,5 +40,5 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Test 
-        run: echo "Hello ${test_env}"
+        run: echo "Hello ${test_env}, ${shared_env}"
           
