@@ -1,24 +1,22 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Main: Test shared workflows
+name: "Main - Test shared workflows"
 
 on:
   push:
     branches: [test2]
 
 env:
-  shared_env: 'Shared ENV'
+  shared_env: 'Shared ENV from the workflow'
   
 jobs:
   test1:
     uses: ./.github/workflows/reusable_workflow.yml
-  with:
-    env:
+    with:
       test_env: 'Passed from Shared workflow'
   
   test2:
     uses: ./.github/workflows/reusable_workflow.yml
-  with:
-    env:
+    with:
       test_env: 'Passed from Shared workflow 2'
