@@ -28,5 +28,5 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Test 
-        run: echo "Hello ${test_env}, ${shared_env}"
+        run: echo "Hello ${{ inputs.test_env }}, ${shared_env}"
  
