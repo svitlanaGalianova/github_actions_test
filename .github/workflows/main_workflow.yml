@@ -6,9 +6,6 @@ name: "Main - Test shared workflows"
 on:
   push:
     branches: [test2]
-
-env:
-  shared_env: 'Shared ENV from the workflow'
   
 jobs:
   test1:
