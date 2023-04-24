@@ -1,0 +1,28 @@
+name: Get changes from merged Merge request
+
+# Cancel in progress runs, if they run on the same workflow and commit
+concurrency:
+  group: ${{ github.workflow }} @ ${{ github.sha }}
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check_changes:
+    runs-on: [self-hosted, linux, X64, ets, ets-cloud]
+    env:
+      current_branch: ${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Check difference between current branch and dev branch for requirements.txt"
+        run: |
+          #git fetch origin pull/${{ github.event.pull_request.number }}/merge
+          git fetch origin pull/2/merge
+          git diff HEAD FETCH_HEAD
+          
+          #echo "Changes detected in requirements.txt"
+          #ADDITIONS=$(git diff origin/dev... -- "requirements.txt" | grep -E '^\+' | sed 's/^.//' | tr '\n' ' ')
+          #DELETIONS=$(git diff origin/dev... -- "requirements.txt" | grep -E '^\-' | sed 's/^.//' | tr '\n' ' ')
+          #echo "Added: \n$ADDITIONS"
+          #echo "Deleted: \n$DELETIONS"
