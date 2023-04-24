@@ -18,8 +18,9 @@ jobs:
       - name: "Check difference between current branch and dev branch for requirements.txt"
         run: |
           #git fetch origin pull/${{ github.event.pull_request.number }}/merge
-          git fetch origin pull/2/merge
-          git diff HEAD FETCH_HEAD
+          git log --merges --grep='Merge pull request'
+          #git fetch origin pull/2/merge
+          #git diff HEAD FETCH_HEAD
           
           #echo "Changes detected in requirements.txt"
           #ADDITIONS=$(git diff origin/dev... -- "requirements.txt" | grep -E '^\+' | sed 's/^.//' | tr '\n' ' ')
