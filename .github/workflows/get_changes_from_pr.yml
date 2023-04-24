@@ -10,7 +10,7 @@ on:
 
 jobs:
   check_changes:
-    runs-on: [self-hosted, linux, X64, ets, ets-cloud]
+    runs-on: ubuntu-20.04
     env:
       current_branch: ${{ github.ref }}
     steps:
